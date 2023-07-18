@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>index</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        margin-top: 200px;
+        width: 500px;
+        border-radius: 10px;
+        padding: 10px;
+        background: #333;
+        color: #fff;
+        height: 100%;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 3px;
+    }
+
+    table {
+        width: 470px;
+        border: 1px solid #d7cece;
+    }
+
+    th,
+    td {
+        border: solid #d7cece;
+        text-align: left;
+        padding: 8px;
+    }
+
+    .login {
+        margin-top: 10px;
+        width: 80px;
+        border: 1px solid #d7cece;
+        background: #786cdf;
+        float: right;
+        padding: 5px;
+        margin-right: 20px;
+    }
+    .login a{
+        text-decoration: none;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>Thông tin đăng ký</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Họ</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Mật Khẩu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="firstName"></td>
+                    <td id="lastName"></td>
+                    <td id="Email"></td>
+                    <td id="password"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="login">
+            <a href="login.html">đăng nhập</a>
+        </div>
+    </div>
+
+    <script>
+        // lấy dữ liệu từ localstorage để hiển thi qua id
+        document.getElementById("firstName").innerText = localStorage.getItem("firstName");
+        document.getElementById("lastName").innerText = localStorage.getItem("lastName");
+        document.getElementById("Email").innerText = localStorage.getItem("Email");
+        document.getElementById("password").innerText = localStorage.getItem("password");
+    </script>
+
+</body>
+
+</html>

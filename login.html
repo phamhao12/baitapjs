@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+
+<body>
+    <!-- đăng nhập -->
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Đăng nhập</h2>
+            <form id="login">
+                <input type="email" placeholder="Email" id="Email" required>
+                <input type="password" placeholder="Password" id="Password" required>
+                <a href="#" class="forgot">Quên mật khẩu?</a>
+                <button type="submit">Đăng nhập</button>
+            </form>
+    
+            <p class="signup">Bạn chưa có tài khoản? <a href="signup.html">Đăng ký</a></p>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("login").addEventListener("submit", function (e) {
+            e.preventDefault();
+    
+            var Email = document.getElementById('Email').value;
+            var Password = document.getElementById('Password').value;
+    
+            // Lấy thông tin đăng ký từ localStorage
+            var email = localStorage.getItem("Email");
+            var password = localStorage.getItem("password");
+    
+            // Kiểm tra xem có thể đăng nhập thành công hay không
+            if (Email === email && Password === password) {
+                alert("Đăng nhập thành công!");
+                window.location.href = "index.html";
+            } else {
+                alert("Thông tin đăng nhập không đúng!");
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

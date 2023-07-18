@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/main.css" rel="stylesheet">
+    <title>Gignup</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Đăng Ký</h2>
+            <p>nhanh chóng và dễ dàng</p>
+            <form id="signup">
+                <div class="name">
+                    <input type="text" placeholder="Họ" id="firstName" style="width: 48%; float: left;" required>
+                    <input type="text" placeholder="Tên" id="lastName" style="width: 48%; float: right;" required>
+                </div>
+                <input type="email" placeholder="Email" id="Email" required>
+                <input type="password" placeholder="Password" id="password" required>
+                <button type="submit">đăng Ký</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        //khởi tạo sự kiện khi ấn vào nút submit
+        document.getElementById("signup").addEventListener("submit", function (e) {
+            
+            e.preventDefault();//ngăn sự kiện khi chưa có dữ liệu
+            //khỏi tạo biến chuyền tới id
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var Email = document.getElementById('Email').value;
+            var password = document.getElementById('password').value;
+    
+            if (firstName === "" || lastName === "" || Email === "" || password === "") {
+                alert("Vui lòng điền đầy đủ thông tin!");
+            } else {
+                //sử lí dữ liệu from đăng ký
+                console.log('Họ:', firstName);
+                console.log('Tên:', lastName);
+                console.log('Email:', Email);
+                console.log('Password:', password);
+                //lưu dữ liệu vào localstorage
+                localStorage.setItem("firstName", firstName);
+                localStorage.setItem("lastName", lastName);
+                localStorage.setItem("Email", Email);
+                localStorage.setItem("password", password);
+                
+                document.getElementById("signup").reset();//
+                alert("Đăng ký thành công!");
+                window.location.href = "login.html"; // chuyển qua from login
+            }
+        });
+    </script>
+    
+
+</body>
+
+</html>
